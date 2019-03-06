@@ -9,5 +9,6 @@ public class VisaPortalInfiniteApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(VisaPortalInfiniteApplication.class, args);
 	}
+	
 
 }
