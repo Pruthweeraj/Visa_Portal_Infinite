@@ -1,12 +1,12 @@
 package com.infinite.visa_portal.entity;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -14,14 +14,14 @@ public class Employee {
 
 	@Id
 	@Column(nullable = false)
-	private String employeeId;
+	private Long employeeId;
 
 	private String employeeName;
 
 	@Column(nullable = false)
 	private String employeeMailId;
 
-	private Timestamp employeeDoj;
+	private LocalDate employeeDoj;
 
 	private Float employeePreviousExprience;
 
@@ -36,7 +36,7 @@ public class Employee {
 	public Employee() {}
 	
 
-	public Employee(String employeeId, String employeeName, String employeeMailId, Timestamp employeeDoj,
+	public Employee(Long employeeId, String employeeName, String employeeMailId, LocalDate employeeDoj,
 			Float employeePreviousExprience, Long employeeMobileNumber , String projectManager ,Project project) {
 		super();
 		this.employeeId = employeeId;
@@ -51,11 +51,11 @@ public class Employee {
 
 	
 	
-	public String getEmployeeId() {
+	public long getEmployeeId() {
 		return employeeId;
 	}
 
-	public void setEmployeeId(String employeeId) {
+	public void setEmployeeId(Long employeeId) {
 		this.employeeId = employeeId;
 	}
 
@@ -75,11 +75,11 @@ public class Employee {
 		this.employeeMailId = employeeMailId;
 	}
 
-	public Timestamp getEmployeeDoj() {
+	public LocalDate getEmployeeDoj() {
 		return employeeDoj;
 	}
 
-	public void setEmployeeDoj(Timestamp employeeDoj) {
+	public void setEmployeeDoj(LocalDate employeeDoj) {
 		this.employeeDoj = employeeDoj;
 	}
 

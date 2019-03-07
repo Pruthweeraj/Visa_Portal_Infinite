@@ -13,7 +13,7 @@ public class Project {
 
 	@Id
 	@GeneratedValue
-	private String projectId;
+	private Long projectId;
 
 	private String projectName;
 
@@ -22,11 +22,10 @@ public class Project {
 	@OneToMany(mappedBy = "project")
 	private List<Employee> employees = new ArrayList<>();
 
-	public Project() {
-	}
+	public Project() {}
  
 	
-	public Project(String projectId, String projectName, String projectOwner ) {
+	public Project(Long projectId, String projectName, String projectOwner ) {
 		this.projectId = projectId;
 		this.projectName = projectName;
 		this.projectOwner = projectOwner;
@@ -34,11 +33,11 @@ public class Project {
 	
 	
 
-	public String getProjectId() {
+	public Long getProjectId() {
 		return projectId;
 	}
 
-	public void setProjectId(String projectId) {
+	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
 	}
 
