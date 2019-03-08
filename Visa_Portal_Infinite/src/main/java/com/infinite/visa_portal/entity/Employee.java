@@ -1,6 +1,5 @@
 package com.infinite.visa_portal.entity;
 
-import java.sql.Timestamp;
 import java.time.LocalDate;
 
 import javax.persistence.Column;

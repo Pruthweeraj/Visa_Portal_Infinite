@@ -1,15 +1,11 @@
 package com.infinite.visa_portal.repository;
 
-import javax.transaction.Transactional;
-
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.infinite.visa_portal.entity.Employee;
 
 @Repository
-@Transactional
-public interface EmployeeRepository extends CrudRepository<Employee, Long>{
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
-	
 }

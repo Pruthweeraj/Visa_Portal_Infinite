@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-
 @Entity
 public class Project {
 
@@ -19,20 +18,23 @@ public class Project {
 	private String projectName;
 
 	private String projectOwner;
-	
+
 	@OneToMany(mappedBy = "project")
 	private List<Employee> employees = new ArrayList<>();
 
-	public Project() {}
- 
-	
-	public Project(Long projectId, String projectName, String projectOwner ) {
+	public Project() {
+	}
+
+	public Project(Long projectId, String projectName, String projectOwner) {
 		this.projectId = projectId;
 		this.projectName = projectName;
 		this.projectOwner = projectOwner;
 	}
-	
-	
+
+	public Project(String projectName, String projectOwner) {
+		this.projectName = projectName;
+		this.projectOwner = projectOwner;
+	}
 
 	public Long getProjectId() {
 		return projectId;
@@ -58,19 +60,16 @@ public class Project {
 		this.projectOwner = projectOwner;
 	}
 
-
 	public List<Employee> getEmployees() {
 		return employees;
 	}
 
-
 	public void addEmployee(Employee employee) {
 		this.employees.add(employee);
 	}
-	
-	public void removeEmployee(Employee employee){
+
+	public void removeEmployee(Employee employee) {
 		this.employees.remove(employee);
 	}
 
-	
 }

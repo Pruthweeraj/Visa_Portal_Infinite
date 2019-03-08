@@ -1,5 +1,7 @@
 package com.infinite.visa_portal;
 
+import java.time.LocalDate;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.infinite.visa_portal.entity.Employee;
 import com.infinite.visa_portal.entity.Project;
 import com.infinite.visa_portal.repository.EmployeeRepository;
 import com.infinite.visa_portal.repository.ProjectRepository;
@@ -27,15 +30,12 @@ public class EmployeeRepositoryTest {
 
 	@Test
 	public void addEmployee() {
-		Project project = new Project(2435L, "Scrips", "Chandra");
+		Project project = new Project("Scrips", "Chandra");
 		projectRepository.save(project);
-		
 
-		/*
-		 * Employee employee = new Employee(1805569L, "Sagar Sahu",
-		 * "sagar@infinite.com", LocalDate.of(2016, 10, 10), 0F, 9938457852L, "Arun",
-		 * project); employeeRepository.save(employee);
-		 */
+		Employee employee = new Employee(1805569L, "Sagar Sahu", "sagar@infinite.com", LocalDate.of(2016, 10, 10), 0F,
+				9938457852L, "Arun", project);
+		employeeRepository.save(employee);
 
 	}
 
