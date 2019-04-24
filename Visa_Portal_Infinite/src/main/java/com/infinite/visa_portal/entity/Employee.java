@@ -2,11 +2,15 @@ package com.infinite.visa_portal.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Employee {
@@ -22,34 +26,33 @@ public class Employee {
 
 	private LocalDate employeeDoj;
 
-	private Float employeePreviousExprience;
+	private Float employeePreviousExperience;
 
 	private Long employeeMobileNumber;
-	
+
 	private String projectManager;
-	
-	@ManyToOne
-	@JoinColumn( name = "project_id")
+
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "project_id")
+	@JsonIgnore
 	private Project project;
 
-	public Employee() {}
-	
+	public Employee() {
+	}
 
 	public Employee(Long employeeId, String employeeName, String employeeMailId, LocalDate employeeDoj,
-			Float employeePreviousExprience, Long employeeMobileNumber , String projectManager ,Project project) {
+			Float employeePreviousExperience, Long employeeMobileNumber, String projectManager, Project project) {
 		super();
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
 		this.employeeMailId = employeeMailId;
 		this.employeeDoj = employeeDoj;
-		this.employeePreviousExprience = employeePreviousExprience;
+		this.employeePreviousExperience = employeePreviousExperience;
 		this.employeeMobileNumber = employeeMobileNumber;
 		this.projectManager = projectManager;
 		this.project = project;
 	}
 
-	
-	
 	public long getEmployeeId() {
 		return employeeId;
 	}
@@ -82,12 +85,12 @@ public class Employee {
 		this.employeeDoj = employeeDoj;
 	}
 
-	public Float getEmployeePreviousExprience() {
-		return employeePreviousExprience;
+	public Float getEmployeePreviousExperience() {
+		return employeePreviousExperience;
 	}
 
-	public void setEmployeePreviousExprience(Float employeePreviousExprience) {
-		this.employeePreviousExprience = employeePreviousExprience;
+	public void setEmployeePreviousExperience(Float employeePreviousExperience) {
+		this.employeePreviousExperience = employeePreviousExperience;
 	}
 
 	public Long getEmployeeMobileNumber() {
