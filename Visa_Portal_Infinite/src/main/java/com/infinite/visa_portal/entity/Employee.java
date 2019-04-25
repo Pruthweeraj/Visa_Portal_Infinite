@@ -37,6 +37,10 @@ public class Employee {
 	@JsonIgnore
 	private Project project;
 
+	@ManyToOne
+	@JoinColumn(name = "status_id")
+	private Status statusId;
+
 	public Employee() {
 	}
 

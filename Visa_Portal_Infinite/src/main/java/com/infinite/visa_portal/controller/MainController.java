@@ -74,8 +74,8 @@ public class MainController {
 
 	// eligible Employees for visa specific to the Manager
 	@GetMapping("/viewEmployees/{projectManager}/eligibleEmployees")
-	public List<Employee> eligibleEmployees(@PathVariable("projectManager") String projectManager){
-		
+	public List<Employee> eligibleEmployees(@PathVariable("projectManager") String projectManager) {
+
 		return employeeService.eligibleEmployees(projectManager);
 	}
 }

@@ -2,7 +2,6 @@ package com.infinite.visa_portal.entity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -10,18 +9,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Project {
 
 	@Id
 	@GeneratedValue
 	private Long projectId;
-
 	private String projectName;
 
 	private String projectOwner;
 
-	@OneToMany(mappedBy = "project" ,cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Employee> employees = new ArrayList<>();
 
 	public Project() {
@@ -64,6 +65,7 @@ public class Project {
 
 	public List<Employee> getEmployees() {
 		return employees;
+		
 	}
 
 	public void addEmployee(Employee employee) {

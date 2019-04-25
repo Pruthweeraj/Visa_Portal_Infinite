@@ -13,26 +13,26 @@ import com.infinite.visa_portal.entity.Employee;
 public class BusinessLogic {
 
 	float requiredYearOfExperience = 2;
-	List<Employee> eligibleEmployee  = new  ArrayList<Employee>();
-	
+
 	// Eligibility for initiating a visa
 	public List<Employee> CheckEligibility(List<Employee> employees) {
+		List<Employee> eligibleEmployee = new ArrayList<Employee>();
+
 		for (Employee employee : employees) {
 
 			LocalDate today = LocalDate.now(); // Today's date
-			LocalDate joiningDay = employee.getEmployeeDoj(); //  Company joining Date
+			LocalDate joiningDay = employee.getEmployeeDoj(); // Company joining Date
 
 			Period period = Period.between(joiningDay, today);
 
 			// Now access the values as below
 			System.out.println(period.getYears());
 
-			
-			if(period.getYears() + employee.getEmployeePreviousExperience() >= requiredYearOfExperience) {
-				
+			if (period.getYears() + employee.getEmployeePreviousExperience() >= requiredYearOfExperience) {
+
 				eligibleEmployee.add(employee);
 			}
-		
+
 		}
 		return eligibleEmployee;
 	}
